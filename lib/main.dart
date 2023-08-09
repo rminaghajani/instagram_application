@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/home_screen.dart';
 import 'package:instagram/screens/login_screen.dart';
 import 'package:instagram/screens/splash_screen.dart';
 import 'package:instagram/screens/switch_screen.dart';
@@ -31,16 +32,21 @@ class Application extends StatelessWidget {
           ),
         ),
         textTheme: TextTheme(
-          headlineMedium: TextStyle(
-            color: white,
-            fontFamily: 'GB',
-            fontSize: 15,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+            headlineMedium: TextStyle(
+              color: white,
+              fontFamily: 'GB',
+              fontSize: 15,
+              fontWeight: FontWeight.w700,
+            ),
+            headlineSmall: TextStyle(
+              color: white,
+              fontFamily: 'GR',
+              fontSize: 13,
+              fontWeight: FontWeight.w400,
+            )),
       ),
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }
