@@ -30,25 +30,60 @@ class HomeScreen extends StatelessWidget {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ElevatedButton(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: ElevatedButton(
               onPressed: () {
                 showModalBottomSheet(
                     barrierColor: Colors.transparent,
                     backgroundColor: Colors.transparent,
                     context: context,
+                    isScrollControlled: true,
                     builder: (BuildContext context) {
-                      return BottomSheetDesign();
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom,
+                        ),
+                        child: DraggableScrollableSheet(
+                          initialChildSize: 0.4,
+                          minChildSize: 0.2,
+                          maxChildSize: 0.7,
+                          builder: (context, controller) {
+                            return BottomSheetDesign(
+                              controller: controller,
+                            );
+                          },
+                        ),
+                      );
                     });
               },
               child: Text('Open BottomSheet'),
             ),
-            _getSotryList(),
-            _getPostList(),
-          ],
-        ),
+          ),
+          SliverToBoxAdapter(
+            child: _getSotryList(),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    _getHeaderOfPost(context),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    _getBodyOfPost(context),
+                  ],
+                );
+              },
+              childCount: 30,
+            ),
+          )
+        ],
       ),
     );
   }
@@ -268,27 +303,27 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _getPostList() {
-    return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            _getHeaderOfPost(context),
-            SizedBox(
-              height: 15,
-            ),
-            _getBodyOfPost(context),
-          ],
-        );
-      },
-      itemCount: 9,
-    );
-  }
+  // Widget _getPostList() {
+  //   return ListView.builder(
+  //     physics: NeverScrollableScrollPhysics(),
+  //     shrinkWrap: true,
+  //     itemBuilder: (context, index) {
+  //       return Column(
+  //         children: [
+  //           SizedBox(
+  //             height: 20,
+  //           ),
+  //           _getHeaderOfPost(context),
+  //           SizedBox(
+  //             height: 15,
+  //           ),
+  //           _getBodyOfPost(context),
+  //         ],
+  //       );
+  //     },
+  //     itemCount: 9,
+  //   );
+  // }
 
   Widget _getSotryList() {
     return Container(
