@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 const Color mainColor = Color(0xff1C1F2E);
+const Color mainColorLighter = Color(0xff272B40);
 const Color pink = Color(0xffF35383);
 const Color gray = Color(0xffC5C5C5);
 const Color white = Color(0xffffffff);
