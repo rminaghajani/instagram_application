@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/activity_screen.dart';
 import 'package:instagram/screens/add_screen.dart';
 import 'package:instagram/screens/home_screen.dart';
 import 'package:instagram/screens/login_screen.dart';
@@ -48,7 +49,7 @@ class Application extends StatelessWidget {
             )),
       ),
       debugShowCheckedModeBanner: false,
-      home: AddScreen(),
+      home: ActivityScreen(),
     );
   }
 }
