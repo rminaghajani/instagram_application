@@ -13,7 +13,7 @@ class AddScreen extends StatelessWidget {
         children: [
           _getWholeScrollingPart(),
           Container(
-            height: 83,
+            height: 100,
             width: double.infinity,
             decoration: BoxDecoration(
               color: mainColorLighter,
@@ -103,7 +103,7 @@ class AddScreen extends StatelessWidget {
           ),
         ),
         SliverPadding(
-          padding: EdgeInsets.only(bottom: 90),
+          padding: EdgeInsets.only(bottom: 110),
         )
       ],
     );
