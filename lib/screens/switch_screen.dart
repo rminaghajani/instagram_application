@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:instagram/data/constants/constants.dart';
+import 'package:instagram/screens/login_screen.dart';
+import 'package:instagram/screens/main_screen.dart';
 
 class SwitchScreen extends StatelessWidget {
   const SwitchScreen({super.key});
@@ -31,7 +33,7 @@ class SwitchScreen extends StatelessWidget {
                       filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
                       child: Container(
                         width: 352,
-                        height: 340,
+                        height: 360,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(
                             Radius.circular(15),
@@ -71,7 +73,16 @@ class SwitchScreen extends StatelessWidget {
                               height: 46,
                               width: 129,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                        return MainScreen();
+                                      },
+                                    ),
+                                  );
+                                },
                                 style:
                                     Theme.of(context).elevatedButtonTheme.style,
                                 child: Text('Confirm'),
@@ -80,9 +91,32 @@ class SwitchScreen extends StatelessWidget {
                             SizedBox(
                               height: 20,
                             ),
-                            Text(
-                              'Switch account',
-                              style: Theme.of(context).textTheme.headlineMedium,
+                            OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                minimumSize: Size(130, 50),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                side: BorderSide(
+                                  color: white,
+                                  width: 3,
+                                ),
+                              ),
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (BuildContext context) {
+                                      return LoginScreen();
+                                    },
+                                  ),
+                                );
+                              },
+                              child: Text(
+                                'Switch account',
+                                style:
+                                    Theme.of(context).textTheme.headlineMedium,
+                              ),
                             )
                           ],
                         ),

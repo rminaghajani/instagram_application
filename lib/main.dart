@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/screens/main_screen.dart';
+import 'package:instagram/screens/splash_screen.dart';
 
 import 'data/constants/constants.dart';
 
@@ -43,7 +43,7 @@ class Application extends StatelessWidget {
             )),
       ),
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: SplashScreen(),
     );
   }
 }
